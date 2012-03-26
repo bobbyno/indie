@@ -1,0 +1,68 @@
+<project name="dist.xml">
+
+  <property environment="env"/>
+  <property name="name" value="indie"/>
+  <property name="server-dir" value="neo4j-community-1.6.1" />
+  <property name="tarball" value="${name}.tar.gz"/>
+  <property name="server-base" value="neo4j-server" />
+  <property name="server" value="${server-base}/${server-dir}" />
+  <property name="gremlin.script" value="gremlin.sh" />
+
+  <target name="compile" depends="-define-paths">
+    <mkdir dir="out"/>
+    <javac srcdir="src/main/java" destdir="out" classpathref="compile.classpath" encoding="UTF-8" includeantruntime="false" debug="on"/>
+    <javac srcdir="src/test/java" destdir="out" classpathref="test.classpath" encoding="UTF-8" includeantruntime="false" debug="on"/>
+  </target>
+
+  <target name="-define-paths">
+    <path id="compile.classpath">
+      <fileset dir="${server}/lib">
+        <include name="**/*.jar"/>
+      </fileset>
+      <fileset dir="${server}/system/lib">
+        <include name="**/*.jar"/>
+      </fileset>
+    </path>
+
+    <path id="test.classpath">
+      <path refid="compile.classpath" />
+      <pathelement location="out" />
+      <fileset dir="lib/test">
+        <include name="**/*.jar"/>
+      </fileset>
+    </path>
+  </target>
+
+  <target name="jar" depends="compile" description="build the extension">
+    <mkdir dir="dist/lib"/>
+    <jar destfile="dist/lib/${name}.jar" basedir="out">
+      <include name="**/*.class"/>
+    </jar>
+    <copy file="dist/lib/${name}.jar" todir="${server}/lib" />
+
+    <copy file="bin/${gremlin.script}" todir="${server}/bin" />
+    <chmod file="${server}/bin/${gremlin.script}" perm="755" />
+  </target>
+
+  <target name="dist" depends="-clean-dist,jar" description="Produce a distribution package">
+    <exec executable="tar" dir="${server-base}">
+      <arg value="-zcvf"/>
+      <arg value="../dist/${tarball}"/>
+      <arg value="${server-dir}"/>
+    </exec>
+  </target>
+
+  <target name="-clean-dist">
+    <delete dir="dist" failonerror="false"/>
+    <mkdir dir="dist"/>
+  </target>
+
+  <target name="clean" description="Delete all generated artifacts">
+    <delete dir="${basedir}/dist"/>
+    <delete dir="${basedir}/out"/>
+    <delete file="${server}/lib/${name}.jar"/>
+    <delete dir="${server}/data/log"/>
+    <delete file="${server}/data/rrd"/>
+  </target>
+
+</project>

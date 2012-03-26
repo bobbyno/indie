@@ -1,0 +1,30 @@
+<project name="tests.xml">
+
+  <target name="ci" depends="clean, units, functionals" description="runs the ci build"/>
+
+  <target name="units" depends="clean, compile" description="Run unit tests">
+      <junit printsummary="yes" haltonfailure="yes" fork="true">
+        <formatter type="brief" usefile="false"/>
+        <classpath refid="test.classpath"/>
+        <batchtest>
+          <fileset dir="out">
+            <include name="**/*Test.class"/>
+            <exclude name="**/functional/*Test.class"/>
+          </fileset>
+        </batchtest>
+      </junit>
+  </target>
+
+  <target name="functionals" depends="compile, jar" description="Run functional tests with a running server">
+      <junit printsummary="yes" haltonfailure="yes">
+        <formatter type="brief" usefile="false"/>
+        <classpath refid="test.classpath"/>
+        <batchtest>
+          <fileset dir="out">
+            <include name="**/functional/*Test.class"/>
+          </fileset>
+        </batchtest>
+      </junit>
+  </target>
+
+</project>

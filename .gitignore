@@ -1,0 +1,12 @@
+dist/*
+out/*
+*.iws
+target/*
+.DS_Store
+neo4j-server/**/bin/gremlin.sh
+neo4j-server/**/data/log/*
+neo4j-server/**/data/rrd
+neo4j-server/**/data/graph.db/*
+neo4j-server/**/lib/indie*
+#*#
+.#*
