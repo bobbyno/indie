@@ -1,0 +1,67 @@
+h1. Indie - A Neo4j Unmanaged Extension SDK
+
+"Unmanaged Extensions":http://docs.neo4j.org/chunked/stable/server-unmanaged-extensions.html provide a way to extend the capabilities of the Neo4j server with the full power of the JDK.
+
+A few use cases for Unmanaged Extensions include: 
+* Customizing the RESTful interface
+* Extending the library of Neo4j's "built-in graph algorithms":http://docs.neo4j.org/chunked/milestone/rest-api-graph-algos.html 
+* Integrating Neo4j with other database or messaging systems
+* Maximizing performance of server-side operations
+* Programming graph algorithms in other JVM languages such as Clojure, Scala, and Groovy
+
+In short, if it can run on the JDK, it can run as an Unmanaged Extension. Indie establishes some useful conventions for Unmanaged Extension development by providing:
+
+* Examples of some common use cases
+* An application architecture that separates JAX-RS from graph algorithm concerns
+* Automatic transaction management for web client requests using the com.sun.jersey.spi.ClosableService interface
+* Unit and functional tests
+* An Ant build script automating testing and distribution
+* An embedded Gremlin console for easy database maintenance when the server is down
+
+
+h2. Getting Started
+
+Indie comes bundled with a 'ping' extension that will let you ensure that your Unmanaged Extension is working correctly.
+
+* Download the latest "Neo4j release":http://neo4j.org/download and unpack into the neo4j-server directory.
+
+* Update neo4j*.properties files in conf directories
+* conf/neo4j-server.properties
+** set org.neo4j.server.thirdparty_jaxrs_classes
+org.neo4j.server.thirdparty_jaxrs_classes=com.aurelius.indie.resources=/ext
+
+* uncomment org.neo4j.server.webserver.address=0.0.0.0 to allow connections from other than localhost
+
+* update the server-dir property in build/dist.xml to the new neo4j version
+
+* update com.aurelius.indie.test.functional.Server.java with the new neo4j directory location
+
+* bin/build-and-run.sh
+
+* stop the server with
+
+  dist/neo4j*/bin/neo4j stop
+
+
+h2. Deployment
+
+```text
+ant dist
+cd dist
+tar -zxvf indie.tar.gz
+neo4j*/bin/neo4j start
+open http://localhost:7474
+```
+
+h2. Version Info
+
+Indie has been tested with the Community, Advanced, and Enterprise editions of Neo4j version 1.6.1.
+
+h2. More Information
+
+* "Getting started with Gremlin":http://github.com/tinkerpop/gremlin/wiki/Getting-Started
+* "Neo4j Manual":http://docs.neo4j.org/chunked/milestone/index.html
+
+h2. Support
+
+Post a message on the "Neo4j Discussion Group":http://groups.google.com/forum/?fromgroups#!forum/neo4j
