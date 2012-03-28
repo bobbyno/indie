@@ -23,7 +23,7 @@ h2. Getting Started
 
 Download the latest "Neo4j release":http://neo4j.org/download and unpack into the neo4j-server directory.
 
-Open neo4j-server/\\*/conf/neo4j-server.properties
+Open neo4j-server/neo$/conf/neo4j-server.properties
 
 Set the following properties
 
@@ -38,21 +38,36 @@ Now compile Indie, copy the jar to Neo4j, create a distribution, unpack it, and 
 bin/build-and-run.sh
 ```
 
-
 Indie comes bundled with a 'ping' extension that will let you ensure that your Unmanaged Extension is working correctly.
 
 Visit http://localhost:7474/ext/ping
 
+h2. Development
 
+h3. IDE configuration
 
-h2. Build and Deployment
+The project includes .ipr and .iml files compatible with IntelliJ 11. If you aren't using IntelliJ, add the jars in the following
+directories:
 
-```text
+* neo4j-server/neo$/lib
+* neo4j-server/neo$/system/lib
+* lib/test
+
+h3. Build and Deployment
+
+View a list of available Ant targets with
+
+```
+ant -p
+```
+
+A high-level distribution cycle will look something like:
+
+```
 ant dist
 cd dist
 tar -zxvf indie.tar.gz
 neo4j*/bin/neo4j start
-open http://localhost:7474
 ```
 
 h2. Compatibility
@@ -64,7 +79,7 @@ h2. License
 
 Indie uses an Apache 2.0 license. See the enclosed LICENSE.txt and NOTICE.txt for more information.
 
-h2. Where to Learn More
+h2. More Information
 
 If you're new to graph databases, "Getting started with Gremlin":http://github.com/tinkerpop/gremlin/wiki/Getting-Started will help you quickly get up and running with a REPL. Gremlin supports Neo4j out of the box, and the examples in Indie use Gremlin extensively.
 
