@@ -1,0 +1,14 @@
+=============================================================================
+==  NOTICE file for use with the Apache License, Version 2.0,              ==
+==  in this case for the Indie Neo4j Unmanaged Extension SDK distribution. ==
+=============================================================================
+
+Indie Neo4j Unmanaged Extension SDK
+Copyright (c) 2012 Aurelius Operations LLC
+
+This product includes software developed by
+Bobby Norton (bobby@thinkaurelius.com)
+Marko Rodriguez (marko@thinkaurelius.com)
+
+For additional credits (generally to people who reported problems)
+see the CREDITS.txt file.

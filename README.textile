@@ -18,6 +18,7 @@ Indie establishes some useful conventions for Unmanaged Extension development by
 * An Ant build script automating testing and distribution
 * An embedded Gremlin console for ease of offline database maintenance
 
+Indie has been tested with the Community, Advanced, and Enterprise editions of Neo4j 1.6.1.
 
 h2. Getting Started
 
@@ -53,14 +54,17 @@ neo4j*/bin/neo4j start
 open http://localhost:7474
 ```
 
-h2. Version Info
+h2. License
 
-Indie has been tested with the Community, Advanced, and Enterprise editions of Neo4j version 1.6.1.
+Indie uses an Apache 2.0 license. See the enclosed LICENSE.txt and NOTICE.txt for more information.
 
-h2. More Information
 
-* "Getting started with Gremlin":http://github.com/tinkerpop/gremlin/wiki/Getting-Started
-* "Neo4j Manual":http://docs.neo4j.org/chunked/milestone/index.html
+h2. Where to Learn More
+
+If you're new to graph databases, "Getting started with Gremlin":http://github.com/tinkerpop/gremlin/wiki/Getting-Started will help you quickly get up and running with a REPL. Gremlin supports Neo4j out of the box, and the examples in Indie use Gremlin extensively.
+
+For comprehensive documentation about Neo4j, see the "Neo4j Manual":http://docs.neo4j.org/chunked/milestone/index.html.
+
 
 h2. Support
 
