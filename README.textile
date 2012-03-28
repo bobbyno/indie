@@ -3,20 +3,20 @@ h1. Indie - A Neo4j Unmanaged Extension SDK
 "Unmanaged Extensions":http://docs.neo4j.org/chunked/stable/server-unmanaged-extensions.html provide a way to extend the capabilities of the Neo4j server with the full power of the JDK.
 
 A few use cases for Unmanaged Extensions include: 
-* Customizing the RESTful interface
+* Customizing Neo4j's default RESTful interface
 * Extending the library of Neo4j's "built-in graph algorithms":http://docs.neo4j.org/chunked/milestone/rest-api-graph-algos.html 
 * Integrating Neo4j with other database or messaging systems
 * Maximizing performance of server-side operations
 * Programming graph algorithms in other JVM languages such as Clojure, Scala, and Groovy
 
-In short, if it can run on the JDK, it can run as an Unmanaged Extension. Indie establishes some useful conventions for Unmanaged Extension development by providing:
+Indie establishes some useful conventions for Unmanaged Extension development by providing:
 
 * Examples of some common use cases
-* An application architecture that separates JAX-RS from graph algorithm concerns
-* Automatic transaction management for web client requests using the com.sun.jersey.spi.ClosableService interface
-* Unit and functional tests
+* An application architecture that separates web request and graph algorithm concerns
+* Automatic transaction management using the com.sun.jersey.spi.ClosableService interface
+* A unit and functional test framework that cleans up the database after each test
 * An Ant build script automating testing and distribution
-* An embedded Gremlin console for easy database maintenance when the server is down
+* An embedded Gremlin console for ease of offline database maintenance
 
 
 h2. Getting Started
