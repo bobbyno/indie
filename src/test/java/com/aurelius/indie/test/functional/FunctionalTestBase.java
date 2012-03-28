@@ -4,7 +4,7 @@ import org.junit.BeforeClass;
 
 public class FunctionalTestBase {
 
-  protected FreebirdClient client = new FreebirdClient();
+  protected Client client = new Client();
 
   @BeforeClass
   public static void startServer() throws Exception {

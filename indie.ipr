@@ -368,61 +368,13 @@
   <component name="libraryTable">
     <library name="neo4j">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/lib/lucene-core-3.5.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/lib/neo4j-cypher-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/lib/neo4j-graph-algo-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/lib/neo4j-graph-matching-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/lib/neo4j-kernel-1.6.1-tests.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/lib/neo4j-kernel-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/lib/neo4j-lucene-index-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/lib/neo4j-shell-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/lib/org.apache.servicemix.bundles.jline-0.9.94_1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/lib/server-api-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/antlr-2.7.7.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/asm-3.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/asm-analysis-3.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/asm-commons-3.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/asm-tree-3.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/asm-util-3.2.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/blueprints-core-1.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/blueprints-neo4j-graph-1.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/commons-beanutils-1.8.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/commons-beanutils-core-1.8.0.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/commons-collections-3.2.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/commons-configuration-1.6.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/commons-digester-1.8.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/commons-io-1.4.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/commons-lang-2.4.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/commons-logging-1.1.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/gremlin-groovy-1.4.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/gremlin-java-1.4.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/groovy-1.8.4.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jackson-core-asl-1.8.3.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jackson-jaxrs-1.8.3.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jackson-mapper-asl-1.8.3.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jansi-1.5.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jcl-over-slf4j-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jersey-core-1.9.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jersey-multipart-1.9.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jersey-server-1.9.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jettison-1.3.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jetty-6.1.25.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jetty-util-6.1.25.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/jsr311-api-1.1.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/log4j-over-slf4j-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/mimepull-1.6.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/neo4j-cypher-plugin-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/neo4j-gremlin-plugin-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/neo4j-server-1.6.1-tests.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/neo4j-server-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/pipes-0.9.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/servlet-api-2.5-20081211.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/slf4j-api-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/slf4j-jdk14-1.6.1.jar!/" />
-        <root url="jar://$PROJECT_DIR$/neo4j-server/neo4j-community-1.6.1/system/lib/stax-api-1.0.1.jar!/" />
+        <root url="file://$PROJECT_DIR$/neo4j-server/neo4j-advanced-1.6.1/lib" />
+        <root url="file://$PROJECT_DIR$/neo4j-server/neo4j-advanced-1.6.1/system/lib" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
+      <jarDirectory url="file://$PROJECT_DIR$/neo4j-server/neo4j-advanced-1.6.1/lib" recursive="false" />
+      <jarDirectory url="file://$PROJECT_DIR$/neo4j-server/neo4j-advanced-1.6.1/system/lib" recursive="false" />
     </library>
     <library name="test">
       <CLASSES>

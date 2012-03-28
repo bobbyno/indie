@@ -18,33 +18,34 @@ Indie establishes some useful conventions for Unmanaged Extension development by
 * An Ant build script automating testing and distribution
 * An embedded Gremlin console for ease of offline database maintenance
 
-Indie has been tested with the Community, Advanced, and Enterprise editions of Neo4j 1.6.1.
 
 h2. Getting Started
 
+Download the latest "Neo4j release":http://neo4j.org/download and unpack into the neo4j-server directory.
+
+Open neo4j-server/\\*/conf/neo4j-server.properties
+
+Set the following properties
+
+```
+org.neo4j.server.webserver.address=0.0.0.0
+org.neo4j.server.thirdparty_jaxrs_classes=com.aurelius.indie.resources=/ext
+```
+
+Now compile Indie, copy the jar to Neo4j, create a distribution, unpack it, and start the server.
+
+```
+bin/build-and-run.sh
+```
+
+
 Indie comes bundled with a 'ping' extension that will let you ensure that your Unmanaged Extension is working correctly.
 
-* Download the latest "Neo4j release":http://neo4j.org/download and unpack into the neo4j-server directory.
-
-* Update neo4j*.properties files in conf directories
-* conf/neo4j-server.properties
-** set org.neo4j.server.thirdparty_jaxrs_classes
-org.neo4j.server.thirdparty_jaxrs_classes=com.aurelius.indie.resources=/ext
-
-* uncomment org.neo4j.server.webserver.address=0.0.0.0 to allow connections from other than localhost
-
-* update the server-dir property in build/dist.xml to the new neo4j version
-
-* update com.aurelius.indie.test.functional.Server.java with the new neo4j directory location
-
-* bin/build-and-run.sh
-
-* stop the server with
-
-  dist/neo4j*/bin/neo4j stop
+Visit http://localhost:7474/ext/ping
 
 
-h2. Deployment
+
+h2. Build and Deployment
 
 ```text
 ant dist
@@ -54,10 +55,14 @@ neo4j*/bin/neo4j start
 open http://localhost:7474
 ```
 
+h2. Compatibility
+
+Indie has been tested with the Community, Advanced, and Enterprise editions of Neo4j 1.6.1 on a Unix-based system. 
+Indie should be able to work on Windows, but some of the scripts will need to change and the documentation needs to be updated.
+
 h2. License
 
 Indie uses an Apache 2.0 license. See the enclosed LICENSE.txt and NOTICE.txt for more information.
-
 
 h2. Where to Learn More
 
@@ -65,7 +70,6 @@ If you're new to graph databases, "Getting started with Gremlin":http://github.c
 
 For comprehensive documentation about Neo4j, see the "Neo4j Manual":http://docs.neo4j.org/chunked/milestone/index.html.
 
+h2. Community
 
-h2. Support
-
-Post a message on the "Neo4j Discussion Group":http://groups.google.com/forum/?fromgroups#!forum/neo4j
+Help for Neo4j and Unmanaged Extensions are available on the "Neo4j Discussion Group":http://groups.google.com/forum/?fromgroups#!forum/neo4j

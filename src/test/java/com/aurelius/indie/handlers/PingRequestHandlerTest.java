@@ -7,6 +7,6 @@ import static junit.framework.Assert.assertEquals;
 public class PingRequestHandlerTest {
   @Test
   public void shouldSendAcknowledgementMessage() {
-    assertEquals("{\"message\":\"freebird loaded successfully\"}", new PingRequestHandler().ping().handle());
+    assertEquals("{\"message\":\"indie loaded successfully\"}", new PingRequestHandler().ping().handle());
   }
 }

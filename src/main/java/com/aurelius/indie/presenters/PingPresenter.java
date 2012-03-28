@@ -15,7 +15,7 @@ public class PingPresenter extends JsonPresenter {
       JsonGenerator g = factory.createJsonGenerator(out);
       JsonNode root = mapper.createObjectNode();
 
-      ((ObjectNode) root).put("message", "freebird loaded successfully");
+      ((ObjectNode) root).put("message", "indie loaded successfully");
 
       mapper.writeValue(g, root);
       g.close();

@@ -7,7 +7,7 @@ import javax.ws.rs.core.MultivaluedMap;
 
 import static com.sun.jersey.api.client.Client.create;
 
-public class FreebirdClient {
+public class Client {
 
   private static final String BASE_URI = "http://localhost:7474/ext/";
 

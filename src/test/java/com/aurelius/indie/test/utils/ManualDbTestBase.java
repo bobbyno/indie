@@ -20,7 +20,7 @@ public class ManualDbTestBase {
 
   @BeforeClass
   public static void initializeDatabase() {
-    dbFilename = "out/freebird_db-" + new Date().getTime();
+    dbFilename = "out/graph_db-" + new Date().getTime();
     database = new Database(new EmbeddedGraphDatabase(dbFilename));
     graphDb = new GraphDatabase(database.graph);
     g = graphDb.g();
