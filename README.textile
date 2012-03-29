@@ -1,4 +1,4 @@
-h1. Indie - A Neo4j Unmanaged Extension Project Template
+h1. Indie - A project template for Neo4j Unmanaged Extensions
 
 "Unmanaged Extensions":http://docs.neo4j.org/chunked/stable/server-unmanaged-extensions.html provide a way to extend the
 capabilities of the Neo4j server with the full power of the JDK.
@@ -24,14 +24,13 @@ h2. Why Indie?
 
 As a developer, you need to build and test the features you plan to add to your Unmanaged Extension. To do that with
 minimal risk, you will want to extensively test and profile your extension. Indie gives you a project structure to do
-that. The project assumes that you to unit test the classes in your extension, package everything up as a jar, copy the
-jar to Neo4j, then start the server and test any features you've added against a server configured to run similarly to
-your production deployment.
+that. The project assumes that you want to unit test the classes in your extension, package everything up as a jar, copy
+the jar to Neo4j, then start the server and test any features you've added against a server configured to run similarly
+to your production deployment.
 
-If you choose, you can use Indie's 'ant dist' task to package up your tested changes in a
-tarball suitable for deployment to your production server. Developers needing only a jar containing their libraries
-can create an Ant target to create that behavior.
-
+If you choose, you can use Indie's 'ant dist' task to package up your tested changes in a tarball suitable for deployment
+to your production server. Developers needing only a jar containing their libraries can create an Ant target to create
+that behavior.
 
 h2. Getting Started
 
@@ -41,19 +40,14 @@ Open neo4j-server/neo$/conf/neo4j-server.properties
 
 Set the following properties
 
-```
-org.neo4j.server.webserver.address=0.0.0.0
-org.neo4j.server.thirdparty_jaxrs_classes=com.aurelius.indie.resources=/ext
-```
+<pre><code>org.neo4j.server.webserver.address=0.0.0.0
+org.neo4j.server.thirdparty_jaxrs_classes=com.aurelius.indie.resources=/ext</code></pre>
 
 Run the unit and functional tests: The default ant target is set up to run all units and functional tests.
 
-```
-ant
-```
+<pre><code>ant</code></pre>
 
 If everything passes, you're ready to start customizing Indie with your own endpoints and traversals.
-
 
 h2. Development
 
@@ -74,28 +68,24 @@ h3. Build and Deployment
 
 A high-level distribution cycle will look something like:
 
-```
+<pre><code>
 ant dist
 cd dist
 tar -zxvf indie.tar.gz
 # copy your tarball to a server and unpack it
 neo4j$/bin/neo4j start
-```
+</code></pre>
 
 Indie includes a script that will unpack the dist tarball locally for easy manual testing:
 
-```
-bin/build-and-run.sh
-```
+<pre><code>bin/build-and-run.sh</code></pre>
 
 Visit http://localhost:7474/ext/ping to visit the 'ping' endpoint, which renders a JSON message to let you know that
 everything is loaded. If the functional tests pass, this step should work.
 
 After running this script, you'll want to shut down the server. Do so with:
 
-```
-dist/neo4j$/bin/neo4j stop
-```
+<pre><code>dist/neo4j$/bin/neo4j stop</code></pre>
 
 h2. Compatibility
 
@@ -109,8 +99,7 @@ Indie uses an Apache 2.0 license. See the enclosed LICENSE.txt and NOTICE.txt fo
 
 h2. More Information
 
-If you're new to graph databases,
-"Getting started with Gremlin":http://github.com/tinkerpop/gremlin/wiki/Getting-Started
+If you're new to graph databases, "Getting started with Gremlin":http://github.com/tinkerpop/gremlin/wiki/Getting-Started
 will help you quickly get up and running with a REPL. Gremlin supports Neo4j out of the box, and the examples in Indie
 use Gremlin extensively.
 
@@ -118,5 +107,4 @@ For comprehensive documentation about Neo4j, see the "Neo4j Manual":http://docs.
 
 h2. Community
 
-Help for Neo4j and Unmanaged Extensions are available on the
-"Neo4j Discussion Group":http://groups.google.com/forum/?fromgroups#!forum/neo4j
+Help for Neo4j and Unmanaged Extensions are available on the "Neo4j Discussion Group":http://groups.google.com/forum/?fromgroups#!forum/neo4j
