@@ -1,7 +1,6 @@
 h1. Indie - A project template for Neo4j Unmanaged Extensions
 
-"Unmanaged Extensions":http://docs.neo4j.org/chunked/stable/server-unmanaged-extensions.html provide a way to extend the
-capabilities of the Neo4j server with the full power of the JDK.
+"Unmanaged Extensions":http://docs.neo4j.org/chunked/stable/server-unmanaged-extensions.html provide a way to extend the capabilities of the Neo4j server with the full power of the JDK.
 
 A few use cases for Unmanaged Extensions include: 
 * Customizing Neo4j's default RESTful interface
