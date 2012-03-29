@@ -1,4 +1,4 @@
-<project name="freebird" default="dev" basedir=".">
+<project name="indie" default="ci" basedir=".">
   <import file="build/dist.xml" />
   <import file="build/tests.xml"/>
 </project>

@@ -1,7 +1,6 @@
 package com.aurelius.indie.test.functional;
 
-import java.io.File;
-import java.io.IOException;
+import com.aurelius.indie.test.utils.FileUtils;
 
 public class Server {
   private static String databaseFiles;
@@ -9,15 +8,9 @@ public class Server {
   private static boolean justStarted = true;
 
   public Server() {
-    String cwd = null;
-    try {
-      cwd = new File(".").getCanonicalPath();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    String version = "neo4j-community-1.6.1";
-    databaseFiles = String.format("%s/neo4j-server/%s/data/graph.db", cwd, version);
-    neo4jCommand = String.format("%s/neo4j-server/%s/bin/neo4j", cwd, version);
+    String version = FileUtils.readServerVersion();
+    databaseFiles = String.format("%s/data/graph.db", version);
+    neo4jCommand = String.format("%s/bin/neo4j", version);
   }
 
   public void start() throws Exception {
@@ -41,6 +34,7 @@ public class Server {
       System.out.println("Clearing the database...");
       runtime.exec(String.format("rm -rf %s", databaseFiles)).waitFor();
 
+      System.out.println(String.format("Starting neo4j: %s", neo4jCommand));
       runtime.exec(String.format("%s start", neo4jCommand)).waitFor();
 
       System.out.println("Pausing for 5s while the server starts...");

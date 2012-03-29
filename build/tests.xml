@@ -1,5 +1,4 @@
-<project name="tests.xml">
-
+<project>
   <target name="ci" depends="clean, units, functionals" description="runs the ci build"/>
 
   <target name="units" depends="clean, compile" description="Run unit tests">
@@ -26,5 +25,4 @@
         </batchtest>
       </junit>
   </target>
-
 </project>
