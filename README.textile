@@ -36,14 +36,15 @@ h2. Getting Started
 
 Download the latest "Neo4j release":http://neo4j.org/download and unpack into the neo4j-server directory.
 
-Open neo4j-server/neo$/conf/neo4j-server.properties
+Open neo4j-server/${neo4j-dist}/conf/neo4j-server.properties, where ${neo4j-dist} is a placeholder for the name of the server 
+distribution you've installed.
 
-Set the following properties
+Set the following properties:
 
 <pre><code>org.neo4j.server.webserver.address=0.0.0.0
 org.neo4j.server.thirdparty_jaxrs_classes=com.aurelius.indie.resources=/ext</code></pre>
 
-Run the unit and functional tests: The default ant target is set up to run all units and functional tests.
+Run the unit and functional tests. The default ant target is set up to run all units and functional tests:
 
 <pre><code>ant</code></pre>
 
@@ -56,8 +57,8 @@ h3. IDE configuration
 The project includes .ipr and .iml files compatible with IntelliJ 11. If you aren't using IntelliJ, add the jars in the
 following directories:
 
-* neo4j-server/neo$/lib
-* neo4j-server/neo$/system/lib
+* neo4j-server/${neo4j-dist}/lib
+* neo4j-server/${neo4j-dist}/system/lib ==
 * lib/test
 
 h3. Project structure
@@ -68,12 +69,11 @@ h3. Build and Deployment
 
 A high-level distribution cycle will look something like:
 
-<pre><code>
-ant dist
+<pre><code>ant dist
 cd dist
 tar -zxvf indie.tar.gz
-# copy your tarball to a server and unpack it
-neo4j$/bin/neo4j start
+# copy your tarball to a server, unpack it, cd into the neo4j* directory
+bin/neo4j start
 </code></pre>
 
 Indie includes a script that will unpack the dist tarball locally for easy manual testing:
@@ -85,13 +85,12 @@ everything is loaded. If the functional tests pass, this step should work.
 
 After running this script, you'll want to shut down the server. Do so with:
 
-<pre><code>dist/neo4j$/bin/neo4j stop</code></pre>
+<pre><code>dist/neo4j*/bin/neo4j stop</code></pre>
 
 h2. Compatibility
 
 Indie has been tested with the Community, Advanced, and Enterprise editions of Neo4j 1.6.1 on a Unix-based system. 
-Indie should be able to work on Windows, but some of the scripts will need to change and the documentation needs to be
-updated.
+Indie should be able to work on Windows, but some of the scripts will need to change. Patches welcome!
 
 h2. License
 
