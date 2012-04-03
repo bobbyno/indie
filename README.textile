@@ -41,7 +41,7 @@ distribution you've installed.
 Set the following properties:
 
 <pre><code>org.neo4j.server.webserver.address=0.0.0.0
-org.neo4j.server.thirdparty_jaxrs_classes=com.aurelius.indie.resources=/ext</code></pre>
+org.neo4j.server.thirdparty_jaxrs_classes=com.graphutils.indie.resources=/ext</code></pre>
 
 Run the unit and functional tests. The default ant target is set up to run all units and functional tests:
 
@@ -59,6 +59,17 @@ following directories:
 * neo4j-server/${neo4j-dist}/lib
 * neo4j-server/${neo4j-dist}/system/lib ==
 * lib/test
+
+h3. REPL
+
+Install Groovy, and you will have a REPL that you can use to quickly test your application.
+
+<pre><code>CLASSPATH=out groovysh
+groovy:000> com.graphutils.indie.test.utils.FileUtils.readServerVersion()
+===> /Users/ecpair/dev/opensource/indie/neo4j-server/neo4j
+</code></pre>
+
+For more information, see the "Groovy Documentation":http://groovy.codehaus.org/Running
 
 h3. Project structure
 

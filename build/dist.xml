@@ -26,9 +26,10 @@
       </fileset>
     </path>
 
-    <dirset id="server.contents" dir="${server-base}" includes="*"/>
+    <dirset id="server.contents" dir="${server-base}" includes="neo4j-*"/>
     <property name="server-dir" refid="server.contents"/>
     <property name="server" value="${server-base}/${server-dir}" />
+    <echo>Using Neo4j server at ${server}</echo>
   </target>
 
   <target name="jar" depends="compile, -copy-gremlin" description="build the extension">

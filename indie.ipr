@@ -368,13 +368,13 @@
   <component name="libraryTable">
     <library name="neo4j">
       <CLASSES>
-        <root url="file://$PROJECT_DIR$/neo4j-server/neo4j-advanced-1.6.1/lib" />
-        <root url="file://$PROJECT_DIR$/neo4j-server/neo4j-advanced-1.6.1/system/lib" />
+        <root url="file://$PROJECT_DIR$/neo4j-server/neo4j/lib" />
+        <root url="file://$PROJECT_DIR$/neo4j-server/neo4j/system/lib" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
-      <jarDirectory url="file://$PROJECT_DIR$/neo4j-server/neo4j-advanced-1.6.1/lib" recursive="false" />
-      <jarDirectory url="file://$PROJECT_DIR$/neo4j-server/neo4j-advanced-1.6.1/system/lib" recursive="false" />
+      <jarDirectory url="file://$PROJECT_DIR$/neo4j-server/neo4j/lib" recursive="false" />
+      <jarDirectory url="file://$PROJECT_DIR$/neo4j-server/neo4j/system/lib" recursive="false" />
     </library>
     <library name="test">
       <CLASSES>
