@@ -17,7 +17,7 @@ The project currently includes:
 * A unit and functional test framework that cleans up the database after each test
 * An Ant build script automating testing and distribution
 * An embedded Gremlin console for ease of offline database maintenance
-* A growing collection of examples of some common use cases
+* Running examples of some common use cases for Unmanaged Extensions
 
 h2. Why Indie?
 
@@ -28,10 +28,11 @@ the jar to Neo4j, then start the server and test any features you've added again
 to your production deployment.
 
 If you choose, you can use Indie's 'ant dist' task to package up your tested changes in a tarball suitable for deployment
-to your production server. Developers needing only a jar containing their libraries can create an Ant target to create
-that behavior.
+to your production server. Developers needing only a jar containing their libraries can easily create such an Ant target.
 
 h2. Getting Started
+
+Clone or download Indie.
 
 Download the latest "Neo4j release":http://neo4j.org/download and unpack into the neo4j-server directory.
 
@@ -47,18 +48,30 @@ Run the unit and functional tests. The default ant target is set up to run all u
 
 <pre><code>ant</code></pre>
 
-If everything passes, you're ready to start customizing Indie with your own endpoints and traversals.
+Indie includes a script that will unpack the dist tarball locally for easy manual testing:
+
+<pre><code>bin/build-and-run.sh</code></pre>
+
+Visit http://localhost:7474/ext/ping to visit the 'ping' endpoint, which renders a JSON message to let you know that
+everything is loaded. If the functional tests pass, this step should work.
+
+After running this script, you'll want to shut down the server. Do so with:
+
+<pre><code>dist/neo4j*/bin/neo4j stop</code></pre>
+
+If everything works, you're ready to start customizing Indie with your own endpoints and traversals.
 
 h2. Development
 
 h3. IDE configuration
 
-The project includes .ipr and .iml files compatible with IntelliJ 11. If you aren't using IntelliJ, add the jars in the
-following directories:
+Add the jars in the following directories to your IDE's classpath.
 
 * neo4j-server/${neo4j-dist}/lib
-* neo4j-server/${neo4j-dist}/system/lib ==
+* neo4j-server/${neo4j-dist}/system/lib
 * lib/test
+
+The project includes .ipr and .iml files compatible with IntelliJ 11 that you may find helpful.
 
 h3. REPL
 
@@ -71,13 +84,12 @@ groovy:000> com.graphutils.indie.test.utils.FileUtils.readServerVersion()
 
 For more information, see the "Groovy Documentation":http://groovy.codehaus.org/Running
 
-h3. Project structure
-
-TODO
+Gremlin is built on Groovy and so can also act as a REPL. A script to start Gremlin is included with the server
+distribution.
 
 h3. Build and Deployment
 
-A high-level distribution cycle will look something like:
+A high-level deployment cycle will look something like:
 
 <pre><code>ant dist
 cd dist
@@ -86,21 +98,25 @@ tar -zxvf indie.tar.gz
 bin/neo4j start
 </code></pre>
 
-Indie includes a script that will unpack the dist tarball locally for easy manual testing:
+h3. Project structure
 
-<pre><code>bin/build-and-run.sh</code></pre>
+TODO
 
-Visit http://localhost:7474/ext/ping to visit the 'ping' endpoint, which renders a JSON message to let you know that
-everything is loaded. If the functional tests pass, this step should work.
-
-After running this script, you'll want to shut down the server. Do so with:
-
-<pre><code>dist/neo4j*/bin/neo4j stop</code></pre>
-
-h2. Compatibility
+h2. Neo4j Version Compatibility
 
 Indie has been tested with the Community, Advanced, and Enterprise editions of Neo4j 1.6.1 on a Unix-based system. 
 Indie should be able to work on Windows, but some of the scripts will need to change. Patches welcome!
+
+h2. Roadmap
+
+At the moment, Indie is meant to act as a project template to get people started on their own extensions. The choice of
+tools such as Ant are somewhat arbitrary. Would people prefer Gradle? How about Maven? Is there a package structure that 
+might make more sense? 
+
+Once the community validates this structure, we could package up Indie as a executable jar that could generate an 
+Unmanaged Extension project in a manner similar to Ruby on Rails.
+
+Feedback on these ideas is welcome.
 
 h2. License
 
@@ -116,4 +132,4 @@ For comprehensive documentation about Neo4j, see the "Neo4j Manual":http://docs.
 
 h2. Community
 
-Help for Neo4j and Unmanaged Extensions are available on the "Neo4j Discussion Group":http://groups.google.com/forum/?fromgroups#!forum/neo4j
+Discussions about Indie, Neo4j, and Unmanaged Extensions are available on the "Neo4j Discussion Group":http://groups.google.com/forum/?fromgroups#!forum/neo4j
