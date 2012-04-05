@@ -52,14 +52,13 @@ Indie includes a script that will unpack the dist tarball locally for easy manua
 
 <pre><code>bin/build-and-run.sh</code></pre>
 
-Visit http://localhost:7474/ext/ping to visit the 'ping' endpoint, which renders a JSON message to let you know that
-everything is loaded. If the functional tests pass, this step should work.
+Visit "http://localhost:7474/ext/ping":http://localhost:7474/ext/ping to visit the 'ping' endpoint, which renders a JSON message to let you know that everything is loaded. If the functional tests pass, this step should work.
 
 After running this script, you'll want to shut down the server. Do so with:
 
 <pre><code>dist/neo4j*/bin/neo4j stop</code></pre>
 
-If everything works, you're ready to start customizing Indie with your own endpoints and traversals.
+If you got this far, you're ready to start customizing Indie with your own endpoints and traversals.
 
 h2. Development
 
@@ -84,8 +83,7 @@ groovy:000> com.graphutils.indie.test.utils.FileUtils.readServerVersion()
 
 For more information, see the "Groovy Documentation":http://groovy.codehaus.org/Running
 
-Gremlin is built on Groovy and so can also act as a REPL. A script to start Gremlin is included with the server
-distribution.
+Gremlin is built on Groovy and so can also act as a REPL. A script to start Gremlin is included with the server distribution.
 
 h3. Build and Deployment
 
@@ -99,6 +97,30 @@ bin/neo4j start
 </code></pre>
 
 h3. Project structure
+
+The basic lifecycle of a client request to an Indie extension within Neo4j looks like this:
+
+* A client sends an HTTP request to a URI registered as a JAX_RS extension in Neo4j
+* Neo4j routes the request and passes along parameters to the appropriate Resource using JAX_RS
+* The Resource calls a method on a Handler
+* The Handler calls one or more Traversals to query or manipulate the graph
+* The Handler renders the Response with the appropriate Presenter, if applicable. A Jackson-based JSON Presenter is included to start.
+* The Resource returns the Response to the client.
+
+The project's package structure reflects these concerns:
+
+<pre>
+com.graphutils.indie
+├── daos - Data source management
+├── exceptions - Custom RuntimeExceptions
+├── handlers - POJO request handlers that simplify JAX-RS resource management
+├── presenters - JSON, XML, and other view rendering concerns
+├── resources - JAX-RS endpoints
+├── traversals - Graph queries and manipulation
+└── utils - Helpful libraries
+</pre>
+
+h3. Unit and Functional Tests
 
 TODO
 
