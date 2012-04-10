@@ -121,8 +121,7 @@ com.example
 
 h3. Unit and Functional Testing
 
-Indie allows unmanaged extension classes to be tested repeatably and in isolation. The included com.example functional tests demonstrate hitting the extension installed in a
-running server. The unit tests use Neo4j in embedded mode to run more quickly.
+Indie allows unmanaged extension classes to be tested repeatably and in isolation. The included com.example functional tests demonstrate hitting the extension installed in a running server. The unit tests use Neo4j in embedded mode to run more quickly.
 
 h2. Neo4j Version Compatibility
 
