@@ -1,5 +1,10 @@
 package com.graphutils.indie.resources;
 
+import com.graphutils.indie.exceptions.MissingNodeException;
+import com.graphutils.indie.handlers.BooleanRequestHandler;
+import com.graphutils.indie.handlers.RequestHandler;
+import com.graphutils.indie.handlers.StreamingRequestHandler;
+import com.graphutils.indie.handlers.StringRequestHandler;
 import com.sun.jersey.spi.CloseableService;
 import org.neo4j.server.database.Database;
 
@@ -17,10 +22,10 @@ public class Resource {
   protected Database db;
   protected CloseableService closeableService;
 
-  protected Response getJson(com.graphutils.indie.handlers.StringRequestHandler handler) {
+  protected Response getJson(StringRequestHandler handler) {
     try {
       return json(handler.handle());
-    } catch (com.graphutils.indie.exceptions.MissingNodeException ex)  {
+    } catch (MissingNodeException ex)  {
       return missing();
     } catch (Exception e) {
       e.printStackTrace();
@@ -28,7 +33,7 @@ public class Resource {
     }
   }
 
-  protected StreamingOutput getStream(final com.graphutils.indie.handlers.StreamingRequestHandler handler) {
+  protected StreamingOutput getStream(final StreamingRequestHandler handler) {
     return new StreamingOutput() {
       public void write(OutputStream output) throws IOException, WebApplicationException {
         try {
@@ -43,7 +48,7 @@ public class Resource {
     };
   }
 
-  protected Response post(com.graphutils.indie.handlers.RequestHandler handler) {
+  protected Response post(RequestHandler handler) {
     final CloseableTransaction transaction = new CloseableTransaction(db.graph.beginTx());
     closeableService.add(transaction);
     try {
@@ -57,15 +62,15 @@ public class Resource {
     }
   }
 
-  protected Response post(com.graphutils.indie.handlers.BooleanRequestHandler handler) {
+  protected Response post(BooleanRequestHandler handler) {
     return withStatusCode(created(), handler);
   }
 
-  protected Response delete(com.graphutils.indie.handlers.BooleanRequestHandler handler) {
+  protected Response delete(BooleanRequestHandler handler) {
     return withStatusCode(deleted(), handler);
   }
 
-  protected Response withStatusCode(Response response, com.graphutils.indie.handlers.BooleanRequestHandler handler) {
+  protected Response withStatusCode(Response response, BooleanRequestHandler handler) {
     final CloseableTransaction transaction = new CloseableTransaction(db.graph.beginTx());
     closeableService.add(transaction);
     try {

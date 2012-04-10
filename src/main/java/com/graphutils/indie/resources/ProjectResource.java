@@ -1,6 +1,8 @@
 package com.graphutils.indie.resources;
 
+import com.graphutils.indie.handlers.ProjectRequestHandler;
 import com.sun.jersey.spi.CloseableService;
+import com.tinkerpop.blueprints.pgm.impls.neo4j.Neo4jGraph;
 import org.neo4j.server.database.Database;
 
 import javax.ws.rs.*;
@@ -11,13 +13,12 @@ import javax.ws.rs.core.Response;
 @Path("/projects")
 public class ProjectResource extends Resource {
   
-  private com.graphutils.indie.handlers.ProjectRequestHandler handler;
+  private ProjectRequestHandler handler;
 
   public ProjectResource(@Context final CloseableService cs, @Context final Database db) {
     this.closeableService = cs;
     this.db = db;
-    com.graphutils.indie.daos.GraphDatabase graphDatabase = com.graphutils.indie.daos.GraphDatabase.getInstance(db.graph);
-    this.handler = new com.graphutils.indie.handlers.ProjectRequestHandler(graphDatabase);
+    this.handler = new ProjectRequestHandler(new Neo4jGraph(db.graph));
   }
 
   @GET

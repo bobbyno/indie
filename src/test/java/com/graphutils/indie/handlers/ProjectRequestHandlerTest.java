@@ -1,25 +1,25 @@
 package com.graphutils.indie.handlers;
 
 import com.graphutils.indie.daos.TinkerGraphData;
-import com.graphutils.indie.handlers.ProjectRequestHandler;
+import com.graphutils.indie.test.utils.AutoDbTestBase;
 import com.tinkerpop.gremlin.java.GremlinPipeline;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
-public class ProjectRequestHandlerTest extends com.graphutils.indie.test.utils.AutoDbTestBase {
+public class ProjectRequestHandlerTest extends AutoDbTestBase {
   @Test
   public void shouldFindProjects() {
-    com.graphutils.indie.daos.TinkerGraphData.populate(g);
-    com.graphutils.indie.handlers.ProjectRequestHandler handler = new com.graphutils.indie.handlers.ProjectRequestHandler(graphDb);
+    TinkerGraphData.populate(g);
+    ProjectRequestHandler handler = new ProjectRequestHandler(g);
     String results = handler.projectsFor("1").handle();
     assertEquals("{\"projects\":[\"ripple\",\"lop\"]}", results);
   }
-  
+
   @Test
   public void shouldLoadProjects() {
-    com.graphutils.indie.handlers.ProjectRequestHandler handler = new com.graphutils.indie.handlers.ProjectRequestHandler(graphDb);
+    ProjectRequestHandler handler = new ProjectRequestHandler(g);
 
     // initially, we start off only with the Neo4j root node in adv. and enterprise edition, but not community
     assertTrue(vCount() <= 1);

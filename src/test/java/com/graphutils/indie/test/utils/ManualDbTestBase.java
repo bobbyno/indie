@@ -1,6 +1,5 @@
 package com.graphutils.indie.test.utils;
 
-import com.graphutils.indie.daos.GraphDatabase;
 import com.tinkerpop.blueprints.pgm.impls.neo4j.Neo4jGraph;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -15,26 +14,25 @@ public class ManualDbTestBase {
   protected Transaction transaction;
   protected static String dbFilename;
   protected static Database database;
-  protected static com.graphutils.indie.daos.GraphDatabase graphDb;
   protected static Neo4jGraph g;
 
   @BeforeClass
   public static void initializeDatabase() {
     dbFilename = "out/graph_db-" + new Date().getTime();
     database = new Database(new EmbeddedGraphDatabase(dbFilename));
-    graphDb = new com.graphutils.indie.daos.GraphDatabase(database.graph);
-    g = graphDb.g();
+    g = new Neo4jGraph(database.graph);
+
   }
 
   @AfterClass
   public static void closeDatabase() {
-    graphDb.shutdown();
+    database.shutdown();
     File dbFile = new File(dbFilename);
     dbFile.delete();
   }
 
   public void startTransaction() {
-    transaction = graphDb.graphDatabaseService().beginTx();
+    transaction = database.graph.beginTx();
   }
 
   public void rollbackTransaction() {
