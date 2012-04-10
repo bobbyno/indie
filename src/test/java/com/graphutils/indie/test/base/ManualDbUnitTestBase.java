@@ -1,4 +1,4 @@
-package com.graphutils.indie.test.utils;
+package com.graphutils.indie.test.base;
 
 import com.tinkerpop.blueprints.pgm.impls.neo4j.Neo4jGraph;
 import org.junit.AfterClass;
@@ -10,7 +10,7 @@ import org.neo4j.server.database.Database;
 import java.io.File;
 import java.util.Date;
 
-public class ManualDbTestBase {
+public class ManualDbUnitTestBase {
   protected Transaction transaction;
   protected static String dbFilename;
   protected static Database database;

@@ -1,5 +1,6 @@
-package com.graphutils.indie.test.functional;
+package com.example.test.functional;
 
+import com.graphutils.indie.test.functional.FunctionalTestBase;
 import org.junit.Test;
 
 import javax.ws.rs.core.Response;

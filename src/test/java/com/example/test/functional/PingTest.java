@@ -1,5 +1,6 @@
-package com.graphutils.indie.test.functional;
+package com.example.test.functional;
 
+import com.graphutils.indie.test.functional.FunctionalTestBase;
 import com.sun.jersey.api.client.ClientResponse;
 import org.junit.Test;
 

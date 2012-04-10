@@ -1,8 +1,10 @@
-package com.graphutils.indie.handlers;
+package com.example.handlers;
 
-import com.graphutils.indie.daos.TinkerGraphData;
-import com.graphutils.indie.presenters.ProjectPresenter;
-import com.graphutils.indie.traversals.BasicTraversals;
+import com.example.daos.TinkerGraphData;
+import com.example.traversals.ProjectTraversals;
+import com.graphutils.indie.handlers.RequestHandler;
+import com.graphutils.indie.handlers.StringRequestHandler;
+import com.example.presenters.ProjectPresenter;
 import com.tinkerpop.blueprints.pgm.Graph;
 
 import java.util.List;
@@ -18,7 +20,7 @@ public class ProjectRequestHandler {
     return new StringRequestHandler() {
       @Override
       public String handle() {
-        List projects = BasicTraversals.findProjects(g, id);
+        List projects = ProjectTraversals.findProjects(g, id);
         return new ProjectPresenter().toJson(projects);
       }
     };

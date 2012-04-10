@@ -1,9 +1,9 @@
-package com.graphutils.indie.test.utils;
+package com.graphutils.indie.test.base;
 
 import org.junit.After;
 import org.junit.Before;
 
-public class AutoDbTestBase extends ManualDbTestBase {
+public class AutoDbUnitTestBase extends ManualDbUnitTestBase {
   @Before
   public void startTransactionImplicitly() {
     startTransaction();

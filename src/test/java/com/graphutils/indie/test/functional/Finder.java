@@ -1,10 +1,10 @@
-package com.graphutils.indie.test.utils;
+package com.graphutils.indie.test.functional;
 
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 
-public class FileUtils {
+public class Finder {
 
   public static String readServerVersion() {
     File server = new File("neo4j-server");

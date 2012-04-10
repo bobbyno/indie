@@ -1,14 +1,12 @@
 package com.graphutils.indie.test.functional;
 
-import com.graphutils.indie.test.utils.FileUtils;
-
 public class Server {
   private static String databaseFiles;
   private String neo4jCommand;
   private static boolean justStarted = true;
 
   public Server() {
-    String version = FileUtils.readServerVersion();
+    String version = Finder.readServerVersion();
     databaseFiles = String.format("%s/data/graph.db", version);
     neo4jCommand = String.format("%s/bin/neo4j", version);
   }

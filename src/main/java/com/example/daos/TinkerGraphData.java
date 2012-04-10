@@ -1,4 +1,4 @@
-package com.graphutils.indie.daos;
+package com.example.daos;
 
 import com.tinkerpop.blueprints.pgm.Graph;
 import com.tinkerpop.blueprints.pgm.Vertex;

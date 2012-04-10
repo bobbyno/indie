@@ -12,12 +12,11 @@ A few use cases for Unmanaged Extensions include:
 The intent of Indie is to act as a starting point for developers new to Unmanaged Extension development.
 The project currently includes:
 
-* An application architecture that separates web request and graph algorithm concerns
+* An application architecture that separates web request and graph algorithm concerns in the com.example namespace
 * Automatic transaction management using the com.sun.jersey.spi.ClosableService interface
 * A unit and functional test framework that cleans up the database after each test
 * An Ant build script automating testing and distribution
 * An embedded Gremlin console for ease of offline database maintenance
-* Running examples of some common use cases for Unmanaged Extensions
 
 h2. Why Indie?
 
@@ -42,7 +41,7 @@ distribution you've installed.
 Set the following properties:
 
 <pre><code>org.neo4j.server.webserver.address=0.0.0.0
-org.neo4j.server.thirdparty_jaxrs_classes=com.graphutils.indie.resources=/ext</code></pre>
+org.neo4j.server.thirdparty_jaxrs_classes=com.example.resources=/ext</code></pre>
 
 Run the unit and functional tests. The default ant target is set up to run all units and functional tests:
 
@@ -58,7 +57,7 @@ After running this script, you'll want to shut down the server. Do so with:
 
 <pre><code>dist/neo4j*/bin/neo4j stop</code></pre>
 
-If you got this far, you're ready to start customizing Indie with your own endpoints and traversals.
+If you got this far, you're ready to start customizing Indie with your own endpoints and traversals; just follow the usage patterns in the com.example namespace.
 
 h2. Development
 
@@ -107,10 +106,10 @@ The basic lifecycle of a client request to an Indie extension within Neo4j looks
 * The Handler renders the Response with the appropriate Presenter, if applicable. A Jackson-based JSON Presenter is included to start.
 * The Resource returns the Response to the client.
 
-The project's package structure reflects these concerns:
+The project's com.example package structure reflects these concerns:
 
 <pre>
-com.graphutils.indie
+com.example
 ├── daos - Data source management
 ├── exceptions - Custom RuntimeExceptions
 ├── handlers - POJO request handlers that simplify JAX-RS resource management
@@ -120,9 +119,10 @@ com.graphutils.indie
 └── utils - Helpful libraries
 </pre>
 
-h3. Unit and Functional Tests
+h3. Unit and Functional Testing
 
-TODO
+Indie allows unmanaged extension classes to be tested repeatably and in isolation. The included com.example functional tests demonstrate hitting the extension installed in a
+running server. The unit tests use Neo4j in embedded mode to run more quickly.
 
 h2. Neo4j Version Compatibility
 

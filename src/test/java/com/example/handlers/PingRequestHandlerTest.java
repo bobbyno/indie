@@ -1,5 +1,6 @@
-package com.graphutils.indie.handlers;
+package com.example.handlers;
 
+import com.example.handlers.PingRequestHandler;
 import junit.framework.Assert;
 import org.junit.Test;
 

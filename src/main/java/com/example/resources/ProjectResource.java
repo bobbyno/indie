@@ -1,6 +1,7 @@
-package com.graphutils.indie.resources;
+package com.example.resources;
 
-import com.graphutils.indie.handlers.ProjectRequestHandler;
+import com.example.handlers.ProjectRequestHandler;
+import com.graphutils.indie.resources.Resource;
 import com.sun.jersey.spi.CloseableService;
 import com.tinkerpop.blueprints.pgm.impls.neo4j.Neo4jGraph;
 import org.neo4j.server.database.Database;

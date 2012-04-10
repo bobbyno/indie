@@ -1,4 +1,4 @@
-package com.graphutils.indie.presenters;
+package com.example.presenters;
 
 import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.map.ObjectMapper;

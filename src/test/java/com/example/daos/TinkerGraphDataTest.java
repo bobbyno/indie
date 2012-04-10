@@ -1,12 +1,12 @@
-package com.graphutils.indie.daos;
+package com.example.daos;
 
-import com.graphutils.indie.test.utils.AutoDbTestBase;
+import com.graphutils.indie.test.base.AutoDbUnitTestBase;
 import com.tinkerpop.gremlin.java.GremlinPipeline;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertTrue;
 
-public class TinkerGraphDataTest extends AutoDbTestBase {
+public class TinkerGraphDataTest extends AutoDbUnitTestBase {
 
   @Test
   public void shouldPopulateGraphOnce() {

@@ -1,14 +1,14 @@
-package com.graphutils.indie.handlers;
+package com.example.handlers;
 
-import com.graphutils.indie.daos.TinkerGraphData;
-import com.graphutils.indie.test.utils.AutoDbTestBase;
+import com.example.daos.TinkerGraphData;
+import com.graphutils.indie.test.base.AutoDbUnitTestBase;
 import com.tinkerpop.gremlin.java.GremlinPipeline;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
-public class ProjectRequestHandlerTest extends AutoDbTestBase {
+public class ProjectRequestHandlerTest extends AutoDbUnitTestBase {
   @Test
   public void shouldFindProjects() {
     TinkerGraphData.populate(g);

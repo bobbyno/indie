@@ -1,6 +1,7 @@
-package com.graphutils.indie.handlers;
+package com.example.handlers;
 
-import com.graphutils.indie.presenters.PingPresenter;
+import com.graphutils.indie.handlers.StringRequestHandler;
+import com.example.presenters.PingPresenter;
 
 public class PingRequestHandler {
 

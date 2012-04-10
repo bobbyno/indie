@@ -1,6 +1,7 @@
-package com.graphutils.indie.resources;
+package com.example.resources;
 
-import com.graphutils.indie.handlers.PingRequestHandler;
+import com.example.handlers.PingRequestHandler;
+import com.graphutils.indie.resources.Resource;
 import com.sun.jersey.spi.CloseableService;
 import org.neo4j.server.database.Database;
 

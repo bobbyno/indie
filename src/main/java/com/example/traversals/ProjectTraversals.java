@@ -1,4 +1,4 @@
-package com.graphutils.indie.traversals;
+package com.example.traversals;
 
 import com.tinkerpop.blueprints.pgm.Graph;
 import com.tinkerpop.blueprints.pgm.Vertex;
@@ -7,7 +7,7 @@ import com.tinkerpop.pipes.PipeFunction;
 
 import java.util.List;
 
-public class BasicTraversals {
+public class ProjectTraversals {
   public static List<String> findProjects(Graph g, String id) {
     return (List<String>) new GremlinPipeline(g.getVertex(id)).out("knows").filter(new PipeFunction<Vertex, Boolean>() {
       @Override
