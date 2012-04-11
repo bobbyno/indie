@@ -1,9 +1,11 @@
 package com.graphutils.indie.test.functional;
 
+import java.io.IOException;
+
 public class Server {
   private static String databaseFiles;
   private String neo4jCommand;
-  private static boolean justStarted = true;
+  private static boolean running = false;
 
   public Server() {
     String version = Finder.readServerVersion();
@@ -12,33 +14,39 @@ public class Server {
   }
 
   public void start() throws Exception {
+    if (running) return;
+
     final Runtime runtime = Runtime.getRuntime();
 
-    if (justStarted) {
-      runtime.addShutdownHook(new Thread() {
-        @Override
-        public void run() {
-          System.out.println("Stopping Neo4j...");
-          try {
-            System.out.println("Clearing the database...");
-            runtime.exec(String.format("rm -rf %s", databaseFiles)).waitFor();
-            runtime.exec(String.format("%s stop", neo4jCommand)).waitFor();
-          } catch (Exception e) {
-            e.printStackTrace();
-          }
+    runtime.addShutdownHook(new Thread() {
+      @Override
+      public void run() {        
+        try {
+          clean(runtime);
+          Server.this.stop(runtime);
+        } catch (Exception e) {
+          e.printStackTrace();
         }
-      });
+      }
+    });
 
-      System.out.println("Clearing the database...");
-      runtime.exec(String.format("rm -rf %s", databaseFiles)).waitFor();
+    clean(runtime);
+    start(runtime);   
+  }
 
-      System.out.println(String.format("Starting neo4j: %s", neo4jCommand));
-      runtime.exec(String.format("%s start", neo4jCommand)).waitFor();
+  private void stop(Runtime runtime) throws InterruptedException, IOException {
+    System.out.println("Stopping Neo4j...");
+    runtime.exec(String.format("%s stop", neo4jCommand)).waitFor();
+  }
 
-      System.out.println("Pausing for 5s while the server starts...");
-      Thread.sleep(5000);
+  private void start(Runtime runtime) throws InterruptedException, IOException {
+    System.out.println(String.format("Starting neo4j: %s", neo4jCommand));
+    runtime.exec(String.format("%s start", neo4jCommand)).waitFor();
+    running = true;
+  }
 
-      justStarted = false;
-    }
+  private void clean(Runtime runtime) throws InterruptedException, IOException {
+    System.out.println("Clearing the database...");
+    runtime.exec(String.format("rm -rf %s", databaseFiles)).waitFor();
   }
 }
